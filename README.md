@@ -9,3 +9,6 @@ Some projects with electron
   "start": "electron .",
   "test": "echo \"Error: no test specified\" && exit 1"
 }
+5. Run npm install electron-reload to view changes on reload itself.
+# How to run the app
+Run npm start on terminal to run the desktop app.
