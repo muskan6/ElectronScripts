@@ -16,3 +16,7 @@ Some projects with electron
 3. index.html and index.js are the frontend and the functionality logic files of your code respectively.
 # How to run the app
 Run npm start on terminal to run the desktop app.
+# Packaging the electron app
+Go to your project's directory
+1. Run npm install -g electron-packager 
+2. Run "electron-packager . " -> . indicates that you are in your current directory.
