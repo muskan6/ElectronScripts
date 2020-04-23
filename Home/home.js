@@ -23,9 +23,6 @@ document.getElementById('open').addEventListener('click', function(){
                 "content": data
             };
             var jsonStr = JSON.stringify(fileObj);
-            fs.writeFile("data.txt", fs.readFileSync("data.txt") + jsonStr, function(err) {
-                if(err) console.log('error', err);
-            });
             window.location.replace("../Editor/mainEditor.html");
         });
     }, false); 
