@@ -1,0 +1,100 @@
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.tab {
+    overflow: hidden;
+    padding-left: 20px;
+}
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 15px;
+    color: white;
+}
+.tab button:hover {
+    background-color: rgb(252, 81, 81);
+}
+.tab button.active {
+    background: white;
+    color: black;
+}
+.tabcontent {
+    display: none;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+#format{
+    display: block;
+}
+.doc-div{
+    padding: 5% 10% 5% 10%;   /*TRDL*/
+}
+.text-div{
+    border: 0.2px solid gray;
+    min-height: 100vh;
+    height: auto;
+    padding: 2% 2% 2% 2%;
+}
+.format-div button{
+    border: 1px solid #f2f2f2;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+}
+.format-div button.active{
+    border: 1px solid black;
+    background-color: white;
+}
+#format{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#view{
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+#font-size{
+    width: 3% !important;
+    padding: 0% !important;
+    height: 1.5% !important;
+    background: white;
+}
+#font-type{
+    width: 10% !important;
+    padding: 0% !important;
+    height: 1.5% !important;
+    background: white;
+}
+.row{
+    margin-bottom: 0px !important;
+    padding-left: 15%;
+    display: flex;
+}
+.card{
+    width: 10%;
+    height: 10%;
+    background-color: buttonface !important;
+    cursor: pointer;
+    margin-right: 5% !important;
+    margin-bottom: 1% !important;
+}
+.card-image{
+    align-self: center;
+}
+.card-image img{
+    left: 33% !important
+}
+.card-content{
+    padding-top: 1% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+}

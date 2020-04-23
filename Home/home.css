@@ -1,0 +1,18 @@
+.card-panel.red.lighten-2{
+    height: 25%;
+    font-size: 530%;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.row{
+    display: flex;
+    padding-left: 8%;
+}
+.row .card{
+    margin: 5% 0 0 4%;
+    min-width: 100px;
+    width: 25%;
+    text-align: center;
+}
+
+

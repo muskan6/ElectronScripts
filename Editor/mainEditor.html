@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Main editor</title>
+        <link rel="stylesheet" href="mainEditor.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+<body>
+    <div class="header red lighten-2 center-align white-text"><strong>Editor++</strong></div>
+    <div class="">
+        <div class="tab red lighten-2">
+            <button id="file" class="tablinks">File</button>
+            <button class="tablinks active" onclick="openTab(event, 'format')">Format</button>
+            <button class="tablinks" onclick="openTab(event, 'view')">View</button>
+        </div>
+        <div id="file" class="tabcontent">
+            <h3>File</h3>
+            <p>This will open file page.</p>
+        </div>
+        <div id="format" class="tabcontent">
+            <div class="format-div center-align"> 
+                <button id="bold"><b>B Bold</b></button>
+                <button id="italic"><i>I Italic</i></button>
+                <button id="underline"><u>U Underline</u></button>
+                <button id="strike"><img src="../Images/strikethrough.png" style="width: 15px; height: 14px;"> Strike</button>
+                <button id="sup" style="vertical-align: sup;">x<b><sup>2</sup></b></button>
+                <button id="sub">x<b><sub>2</sub></b></button>
+                <button id="left"><img src="../Images/align-left.png" style="width: 15px; height: 15px;"> Left</button>
+                <button id="right"><img src="../Images/align-right.png" style="width: 15px; height: 15px;"> Right</button>
+                <button id="center"><img src="../Images/align-center.png" style="width: 15px; height: 15px;"> Center</button>
+                <button id="full"><img src="../Images/align-justify.png" style="width: 15px; height: 15px;"> Justify</button>
+                <input id="fcolor" type="color">
+                <button id="highlight" style="background: yellow"><b>H</b></button>
+                <br>
+                <button id="addNumber"><img src="../Images/add-number.png"  style="width: 15px; height: 15px;"> Numbers</button>
+                <button id="remove">Remove</button>
+                <select id="font-size">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+                <select id="font-type">
+                    <option value="Arial">Arial</option>
+                    <option value="Arial Narrow">Arial Narrow</option>
+                    <option>Calibri</option>
+                    <option>Courier</option>
+                    <option>Courier New</option>
+                    <option>Cursive</option>
+                    <option>fantasy</option>
+                    <option>Franklin Gothic Medium</option>
+                    <option>Georgia</option>
+                    <option>Helvetica</option>
+                    <option>sans-serif</option>
+                    <option>serif</option>
+                    <option>Times New Roman</option>
+                    <option>Trebuchet MS</option>
+                </select>
+                <button id="indent">Indent</button>
+                <button id="outdent">Outdent</button>
+            </div>
+        </div>
+        <div id="view" class="tabcontent">
+            <div class="format-div center-align row"> 
+                <div class="card center-align">
+                    <div class="card-image center-align">
+                        <img src="../Images/read-mode.png" style="width: 40%">
+                    </div>
+                    <div class="card-content" id="read-mode">
+                        <p>Read Mode</p>
+                    </div>
+                </div>
+                <div class="card center-align">
+                    <div class="card-image center-align">
+                        <img src="../Images/add-para.png" style="width: 40%">
+                    </div>
+                    <div class="card-content" >
+                        <button id="hrline">Add Line</button>
+                    </div>
+                </div>
+                <div class="card center-align">
+                    Add Symbols
+                    <select id="addSym">
+                        <option>≥</option>
+                        <option>≤</option>
+                        <option>$</option>
+                        <option>#</option>
+                        <option>@</option>
+                        <option>^</option>
+                        <option>≈</option>
+                        <option>×</option>
+                        <option>÷</option>
+                        <option>mod</option>
+                        <option>√</option>
+                        <option>°</option>
+                        <option>∫</option>
+                        <option>∞</option>
+                        <option>Δ</option>
+                    </select>
+                </div>
+                <div class="card center-align">
+                    <div class="card-image center-align">
+                        <img src="../Images/add-para.png" style="width: 40%">
+                    </div>
+                    <div class="card-content" >
+                        <button id="hrline">Add Line</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="doc-div grey lighten-3">
+        <div class="text-div white" contenteditable="true">
+            Does this stay the same ?
+        </div>
+    </div>
+    <script src="mainEditor.js"></script>
+    </body>
+</html>

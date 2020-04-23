@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Main editor</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            .header{
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            .doc-div{
+                padding: 5% 10% 5% 10%;   /*TRDL*/
+            }
+            .text-div{
+                border: 0.2px solid gray;
+                min-height: 100vh;
+                height: auto;
+                padding: 2% 2% 2% 2%;
+            }
+            #img{
+                width: 20%;
+                height: 20%;
+            }
+            button{
+                background-color: inherit;
+                margin-right: 30%;
+                border: 1px solid #f2f2f2;
+            }
+        </style>
+    </head>
+<body>
+    <div class="header red lighten-2 white-text"><button id="img"><i class="material-icons">first_page</i></button><strong>Editor++</strong></div>
+    <div class="doc-div grey lighten-3">
+        <div class="text-div white" contenteditable="true">
+        </div>
+    </div>
+    <script>
+        document.querySelector(".text-div").innerHTML = localStorage.getItem('readText');
+        document.querySelector("#img").addEventListener('click', function(){
+            localStorage.setItem('text', localStorage.getItem('readText'));
+            window.location = "./mainEditor.html";
+        })
+    </script>
+    </body>
+</html>
