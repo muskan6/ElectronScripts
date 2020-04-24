@@ -5,12 +5,12 @@ const {dialog} = require('electron').remote;
 localStorage.setItem('text', localStorage.getItem('saveText'));
 
 document.getElementById('home').addEventListener('click', function(){
-    window.location = "../Home/home.html";
+    window.location.assign("../Home/home.html");
 })
 
 document.getElementById('new').addEventListener('click', function(){
     localStorage.setItem('text', "");
-    window.location = "./mainEditor.html";
+    window.location.assign("./mainEditor.html");
 });
 
 document.getElementById('open').addEventListener('click', function(){
@@ -27,7 +27,37 @@ document.getElementById('open').addEventListener('click', function(){
             }
             localStorage.setItem('existingfile', file);
             localStorage.setItem('text', data);
-            window.location = "../Editor/mainEditor.html";
+        });
+        //update your json file
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        var fileObj = {
+            "name": file,
+            "day": today
+        };
+        var fileData = fs.readFileSync("data.json");
+        var jsonData = JSON.parse(fileData);
+        var found = false;
+        for (var i = 0; i < jsonData.files.length; i++) {
+            if(jsonData.files[i]["name"] == fileObj["name"]){
+                found = true;
+                jsonData.files[i]["day"] = fileObj["day"];
+                var obj = jsonData.files.splice(i, 1);
+                jsonData.files.unshift(obj[0]);
+                break;
+            }
+        }
+        if(found == false){
+            jsonData.files.unshift(fileObj);
+        }
+        fs.writeFile("data.json", JSON.stringify(jsonData), function(err) {
+            if(err){ 
+                console.log('error', err);
+            }
+            window.location.assign("../Editor/mainEditor.html");
         });
     }, false);
 });
@@ -63,5 +93,3 @@ document.getElementById('saveas').addEventListener('click', function(){
         });
     }, false);
 });
-
-// load json data

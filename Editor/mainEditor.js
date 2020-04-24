@@ -1,3 +1,6 @@
+const fs = require('fs');
+const {dialog} = require('electron').remote;
+
 // if main page said open an existing file
 var openedFile = null;
 if(localStorage.length != 0){
@@ -82,7 +85,7 @@ document.querySelector('#file').addEventListener('click', function(){
     var content = document.querySelector('.text-div').innerHTML;
     localStorage.setItem('saveText', content);
     localStorage.setItem('existingfile', openedFile);
-    window.location = "newPage.html";
+    window.location.assign("newPage.html");
 })
 // view
 document.querySelector('#indent').addEventListener('click', function(e){
@@ -97,8 +100,18 @@ document.querySelector('#hrline').addEventListener('click', function(e){
 document.querySelector('#read-mode').addEventListener('click', function(){
     var content = document.querySelector('.text-div').innerHTML;
     localStorage.setItem('readText', content);
-    window.location = "readPage.html";
+    window.location.assign("readPage.html");
 });
 document.querySelector('#addSym').addEventListener('change', function(e){
-    document.querySelector('.text-div').innerHTML += "<b>" + e.target.value + "</b>";
+    document.querySelector('.text-div').innerHTML += e.target.value;
+});
+document.querySelector('#add-img').addEventListener('click', function(){
+    dialog.showOpenDialog().then((fileNames) => {
+        if(fileNames.filePaths.length == 0){
+            console.log("No file selected");
+            return;
+        }
+        var file = (fileNames.filePaths[0]);
+        document.querySelector('.text-div').innerHTML += "<img src='" + file + "' style='width:10%; height:10%'>";
+    }, false);
 })

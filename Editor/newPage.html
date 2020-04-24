@@ -20,7 +20,7 @@
             <div class="col s11">
                 <div id="loadData">
                     <span id="recent"><b>Recents</b></span>
-                    <table>
+                    <table id="table-data">
                         <tr>
                             <th>Name</th>
                             <th>Last Modified</th>
@@ -29,6 +29,30 @@
                 </div>
             </div>    
         </div>
-        <script src="newPage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+        <script src="newPage.js">
+        </script>
+        <script>
+            window.onload = function(){
+                var table = document.querySelector('#table-data');
+                var fileData = fs.readFileSync("data.json");
+                var jsonData = JSON.parse(fileData).files;
+
+                var col = ["name", "day"];
+                for (var i = 0; i < jsonData.length; i++) {
+                    tr = table.insertRow(-1);
+                    for (var j = 0; j < col.length; j++) {
+                        var cell = tr.insertCell(-1);
+                        var filename = jsonData[i][col[j]];
+                        var k = filename.length-1;
+                        while(k >= 0 && filename[k] != "\\"){
+                            k--;
+                        }
+                        cell.innerHTML = filename.substring(k+1);
+                    }
+                    table.appendChild(tr);
+                }
+            }
+        </script>
     </body>
 </html>

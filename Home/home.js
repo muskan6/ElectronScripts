@@ -3,7 +3,6 @@ const {dialog} = require('electron').remote;
 localStorage.clear();
 document.getElementById('open').addEventListener('click', function(){
     dialog.showOpenDialog().then((fileNames) => {
-        console.log(fileNames.filePaths[0]);
         if(fileNames.filePaths.length == 0){
             console.log("No file selected");
             return;
@@ -18,12 +17,36 @@ document.getElementById('open').addEventListener('click', function(){
             localStorage.setItem('text', data);
             
             //update your json file
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+            var yyyy = today.getFullYear();
+            today = mm + '/' + dd + '/' + yyyy;
             var fileObj = {
                 "name": file,
-                "content": data
+                "day": today
             };
-            var jsonStr = JSON.stringify(fileObj);
-            window.location.replace("../Editor/mainEditor.html");
+            var fileData = fs.readFileSync("data.json");
+            var jsonData = JSON.parse(fileData);
+            var found = false;
+            for (var i = 0; i < jsonData.files.length; i++) {
+                if(jsonData.files[i]["name"] == fileObj["name"]){
+                    found = true;
+                    jsonData.files[i]["day"] = fileObj["day"];
+                    var obj = jsonData.files.splice(i, 1);
+                    jsonData.files.unshift(obj[0]);
+                    break;
+                }
+            }
+            if(found == false){
+                jsonData.files.unshift(fileObj);
+            }
+            fs.writeFile("data.json", JSON.stringify(jsonData), function(err) {
+                if(err){ 
+                    console.log('error', err);
+                }
+                window.location.replace("../Editor/mainEditor.html");
+            });
         });
     }, false); 
 });

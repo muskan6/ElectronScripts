@@ -3,6 +3,15 @@
     top: 0;
     width: 100%;
 }
+.navbar{
+    position: fixed;
+    width: 100%;
+}
+.navbar-fixed{
+    margin-top: 2%;
+    position: fixed;
+    width: 100%;
+}
 .tab {
     overflow: hidden;
     padding-left: 20px;
@@ -13,8 +22,8 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding-top: 25px;
-    padding-bottom: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     font-size: 15px;
@@ -31,6 +40,7 @@
     display: none;
     border: 1px solid #ccc;
     border-top: none;
+    background: white;
 }
 #format{
     display: block;
@@ -43,6 +53,7 @@
     min-height: 100vh;
     height: auto;
     padding: 2% 2% 2% 2%;
+    margin-top: 15%;
 }
 .format-div button{
     border: 1px solid #f2f2f2;
@@ -75,11 +86,12 @@
 }
 .row{
     margin-bottom: 0px !important;
-    padding-left: 15%;
+    padding-left: 30%;
     display: flex;
 }
 .card{
-    width: 10%;
+    width: 10% !important;
+    min-width: 10% !important;
     height: 10%;
     background-color: buttonface !important;
     cursor: pointer;

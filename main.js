@@ -20,7 +20,7 @@ app.on('ready', function(){
       }});
     mainWindow.maximize();
     // uncomment to see developer tools
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
     // hide the menu bar
     mainWindow.setMenuBarVisibility(false);
     // open your html webpage as a url in the window
